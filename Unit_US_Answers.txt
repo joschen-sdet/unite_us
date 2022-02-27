@@ -1,0 +1,53 @@
+
+# Unite US Excersices
+
+Exercise 1: Writng Test Cases
+
+ex_1-api_test: Verify you can filter providers by need in an API test: Write a test case with one assertion you would make.
+Given that https://nccare360.resources.uniteus.io/ has API endpoints
+And it allows query with filter
+When user submit request using GET action with query parameter 
+And the parameter name is supported
+Then the service should return a filtered list of resources
+And the item count of the filter list should equal to the expected item count
+And the names of the entities should match the expected name list
+ex_2-ui_test: Verify you can filter providers by need in a browser-based, user-interface test: Write a test case with one assertion you would make
+Given that https://nccare360.resources.uniteus.io/ page has Filter panel(filter-container) , service list(list-pagination-container) and map panel(map-container)
+And there are fileters displayed for user to make selection based on their needs
+When user expand a filter category 
+It should display the filter list
+When user pick one of the filter
+The service list and map should update accordingly
+And the item count in the service list should match the expected item count
+And the pagination should have number of pages equals (item count / 10)
+And the names of teh entities should match the expected name list
+And the map should have the sum of the number of entities represented by the buttoms equals the expected item count
+and the map should have all the buttoms visible within the panel
+
+
+Exercise 2: API Testing: 3rd Party Integrations
+
+Questions:
+How and where to get the API specification for 3rd party?
+Which 3rd party API endpoints are involved in the transaction?
+How to authenticate with the 3rd party API?
+Do the authentication involved both direction and/or mTLS?
+How to get authorization for the service if any?
+How to get technical support for the 3rd party API?
+What are the SLA and SLO? 
+Where are the transaction/operation logs for requests and responses?
+
+Tool:
+Postman, cypress.io and/or testing code
+
+Checking:
+Authentication from/to third party system works faithfully and accurately
+Go over OWASP top 10 list (https://owasp.org/Top10/) and test our service for those. For example, middle man attach and script injection
+Validate the reponse for both side does miss or add any field.
+Check the data type in the 3rd party response met the specification
+Check input/data sanitization of our API enpoints
+Make sure the databases are updated accordingly and failthfully
+Make sure the error handling scenarios are covered and system behaves correctly
+
+
+Exercise 3: Coding UI Test Automation
